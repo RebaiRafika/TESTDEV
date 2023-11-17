@@ -49,54 +49,8 @@ public class MainActivity extends AppCompatActivity {
         tvAge =(TextView) findViewById(R.id.tvAge);
         tvResultat =(TextView) findViewById(R.id.tvResultat);
     }
-    public void calculer(View v){
-        int age;
-        float valeurMesuree;
-        boolean verifAge=false;
-        boolean verifValeur=false;
-        if(sbAge.getProgress()!=0)
-            verifAge=true;
-        else
-            Toast.makeText(MainActivity.this,"saisir votre age",Toast.LENGTH_SHORT).show();
-        if (sbValeur.getText().toString().isEmpty())
-            verifValeur=true;
-        else Toast.makeText(MainActivity.this,"veillez verifier  la valeur mesuree",Toast.LENGTH_LONG).show();
-        if (verifAge && verifValeur){
-            age=sbAge.getProgress();
-            valeurMesuree=Float.valueOf(sbValeur.getText().toString());
-            boolean rbtOui= rbIsFasting.isChecked();
-            if (rbtOui){
-                if (age>=13)
-                    if (valeurMesuree<5)
-                        tvResultat.setText("niveau de glycemie est bas");
-                    else if (valeurMesuree>=5 && valeurMesuree<=7.2) {
-                        tvResultat.setText("niveau de glycemie est normale");}
-                        else
-                            tvResultat.setText("niveau de glycemie est elevee");
-                else if (age>6 && age<=12 ) {
-                    if (valeurMesuree<5)
-                        tvResultat.setText("niveau de glycemie est bas");
-                    else if (valeurMesuree>=5 && valeurMesuree<=10) {
-                        tvResultat.setText("niveau de glycemie est normale");}
-                    else
-                        tvResultat.setText("niveau de glycemie est elevee");
+    public void calculer(View v) {
 
-
-                } if (age<6)
-                    if (valeurMesuree<5.5)
-                        tvResultat.setText("niveau de glycemie est bas");
-                    else if (valeurMesuree>=5.5 && valeurMesuree<=10.0)
-                        tvResultat.setText("niveau de glycemie est normale");
-                        else
-                        tvResultat.setText("niveau de glycemie est elevee");
-
-
-            } else if (valeurMesuree>10.51){
-                tvResultat.setText("niveau de glycemie est elevee");}
-                else
-                tvResultat.setText("niveau de glycemie est normale");
-
-            }
         }
-        }
+    }
 
